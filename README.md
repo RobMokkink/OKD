@@ -1,5 +1,6 @@
-# OKD Lab
-This repo contains information and point about how to setup your OKD lab for study purposes.
+# OKD Single Node Lab
+
+This repo contains information and pointer about how to setup your OKD lab for study purposes.
 At first this lab will consist of a single master OKD node, which you can expand with more nodes.
 
 ## Prerequisites
@@ -30,7 +31,8 @@ Create DNS entry's for the nodes, api, api-int and wildcard ingress domain. Note
 address=/.apps.okd.lab.local/10.0.0.10
 ```
 
-If you make changed while running VM's, always use ```sudo systemctl reload NetworkManager```, do not do a ```restart```
+If you make changes while running VM's, always use ```sudo systemctl reload NetworkManager```, do not do a ```sudo systemctl restart NetworkManager```
+Also make sure that ```/etc/nsswitch.conf``` is configure correctly, this must be set to ```hosts:       dns files```, otherwise you will get issues with the wildcard dns ingress domains.
 
 ## HA Proxy
 Haproxy needs to be configured see the ```haproxy.cfg``` example. When running you can see status by pointing your brower to the ```http://<FQDN of your haproxy>:8443/stats``` 
