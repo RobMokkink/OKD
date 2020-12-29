@@ -25,5 +25,4 @@ networking:
 platform:
   none: {}
 pullSecret: '{"auths":{"foo": "bar"}}'
-sshKey: |
-  <ssh key goes here>
+sshKey: '<ssh public key goes here>'
