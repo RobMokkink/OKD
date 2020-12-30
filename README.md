@@ -38,6 +38,8 @@ Also make sure that ```/etc/nsswitch.conf``` is configure correctly, this must b
 Haproxy needs to be configured see the ```haproxy.cfg``` example. When running you can see status by pointing your brower to the ```http://<FQDN of your haproxy>:8443/stats``` 
 
 
+
+
 ## Webserver to host ignition files
 You can install for example a apache webserver on the loadbalancer and make sure you have it listen on a different port, for example ```8080```.
 
@@ -45,6 +47,13 @@ You can install for example a apache webserver on the loadbalancer and make sure
 ## Install config
 See the OKD documentation about the required tools etc, see https://docs.okd.io/latest/installing/installing_bare_metal/installing-bare-metal.html
 See the example ```install-config.yaml```, we only have 1 master node. You will need to adjust the basedomain, [pullsecret](https://cloud.redhat.com/openshift/install/pull-secret) and ssh keys.
+
+---
+**Note**
+Make sure you are in the same directory as the ```install-config.yaml```
+---
+
+
 Create the manifests files:
 ```
 $ openshift-install create manifests
@@ -54,6 +63,10 @@ WARNING Discarding the Openshift Manifests that was provided in the target direc
 ```
 
 Ignore the WARNINGS!
+
+---
+**Note**
+Make sure you are in the same directory as the previous step
 
 Create the iginition files:
 ```
@@ -99,7 +112,7 @@ Once the system is booted i prefer to set the hostname and ip adress correctly w
 Then do the following:
 
 ```
-sudo coreos-install install /dev/vda --copy-network --ignition-url=http://<FQDN>:8080/bootstrap.ign --insecure-igntion```
+sudo coreos-installer install /dev/vda --copy-network --ignition-url=http://<FQDN>:8080/bootstrap.ign --insecure-igntion
 ```
 
 Then reboot the node.
@@ -120,7 +133,7 @@ Or create a dhcp reservation like stated above with ```virsh``` command.
 Then do the following:
 
 ```
-sudo coreos-install install /dev/vda --copy-network --ignition-url=http://<FQDN>:8080/master.ign --insecure-igntion```
+sudo coreos-installer install /dev/vda --copy-network --ignition-url=http://<FQDN>:8080/master.ign --insecure-igntion
 ```
 
 Then reboot the node.
