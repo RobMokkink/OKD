@@ -50,6 +50,7 @@ See the example ```install-config.yaml```, we only have 1 master node. You will 
 
 ---
 **Note**
+
 Make sure you are in the same directory as the ```install-config.yaml```
 ---
 
@@ -66,6 +67,7 @@ Ignore the WARNINGS!
 
 ---
 **Note**
+
 Make sure you are in the same directory as the previous step
 
 Create the iginition files:
