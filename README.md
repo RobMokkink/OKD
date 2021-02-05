@@ -11,6 +11,14 @@ At first this lab will consist of a single master OKD node, which you can expand
 - linux vm with haproxy
 - webserver to host ignition files
 - Fedora CoreOS stable iso, see https://getfedora.org/en/coreos/download?tab=metal_virtualized&stream=stable
+- openshift-install version:
+  ```
+  openshift-install 4.5.0-0.okd-2020-10-15-235428
+  built from commit 63200c80c431b8dbaa06c0cc13282d819bd7e5f8
+  release image quay.io/openshift/okd@sha256:67cc7cb47d56237adcf0ecc2ee76446785add5fa236cd08746b55f578b9200a5
+  ```
+- Fedora Coreos -> fedora-coreos-32.20201104.3.0-live.x86_64.iso
+
 
 ##  Network
 Enable dnsmasq plugin in NetworkManager, see the above link.
